@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.jc_annotation {
+    color: grey;
+    font-style: italic;
+}
+
+.margup {
+    margin-top: 2em;
+}
+
+.indent-2 {
+    margin-left: 2em;
+}
+
+.typeName {
+    color: rgb(79, 79, 173);
+}
+
+.functionName {
+    color: rgb(79, 173, 84);
+
+}
+
+.capitalized {
+    text-transform: capitalize;
+}
+
+.comment{
+    color: rgb(228, 233, 166)
+}

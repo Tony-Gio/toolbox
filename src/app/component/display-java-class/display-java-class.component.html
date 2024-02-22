@@ -1,0 +1,9 @@
+<div class="display_container">
+    <div class="codeOptions">
+        <div class="code-btn" id="codeOption-class" (click)="displayFile('class')"  [ngClass]="{'active': optionActivated === 1}">Class</div>
+        <div class="code-btn" id="codeOption-repository" (click)="displayFile('repository')" [ngClass]="{'active': optionActivated === 2}">Repository</div>
+        <div class="code-btn" id="codeOption-service" (click)="displayFile('service')" [ngClass]="{'active': optionActivated === 3}">Service</div>
+        <div class="code-btn" id="codeOption-controller" (click)="displayFile('controller')" [ngClass]="{'active': optionActivated === 4}">Controller</div>
+    </div>
+    <div id="displayCode"></div>
+</div>

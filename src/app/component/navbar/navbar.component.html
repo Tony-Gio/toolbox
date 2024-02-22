@@ -1,0 +1,16 @@
+<nav id="navbar__container">
+    <ul>
+        <li >
+            <a href="#" class="logo">ToolBOX</a>
+        </li>
+        <li class="burger" (click)="toggleMenu()">
+            <i class="material-icons"> {{isMenuOpen ? "close": "menu"}}</i>
+        </li>
+        <li class="menu"  [class.is-open]="isMenuOpen">
+            <a class="menu-item" href="#" routerLink="/home" (click)="toggleMenu()">Home</a>
+            <a class="menu-item" href="#" routerLink="/java" (click)="toggleMenu()">Java</a>
+            <a class="menu-item" href="#" routerLink="/angular" (click)="toggleMenu()">Angular</a>
+            <a class="menu-item" href="#" routerLink="/cheat" (click)="toggleMenu()">CheatSheets</a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,96 @@
+<div class="classform">
+    <form [formGroup]="javaClassForm" (ngSubmit)="onSubmit()">
+        <h2>Your Class</h2>
+
+        <!-- Class Name -->
+        <div class="classNameInput">
+            <p>Class Name:</p>
+            <label for="javaClassName"></label>
+            <input id="javaClassName" placeholder="Enter a name" formControlName="javaClassName">
+        </div>
+        <!-- Related table name if needed-->
+        <div class="classTableInput">
+            <p>Link your class to a table ({{isTableClassNameVisible?"Yes":"No"}})
+            <label class="switch">
+                <input type="checkbox" (click)="addTable()">
+                <span class="slider round"></span>
+            </label></p>
+        </div>
+        
+        <label for="tableClassName"></label>
+        <input id="tableClassName" *ngIf="isTableClassNameVisible" name="tableClassName" placeholder="Enter table name"
+            formControlName="tableClassName">
+
+
+
+        <h2>Your Class's attributes</h2>
+        <!-- Id as a first attribute-->
+        <div class="classId">
+            <p>Auto-generated &#64;id" ? 
+            <label class="switch">
+                <input type="checkbox" (click)='addOutput("id")'>
+                <span class="slider round"></span>
+            </label></p>
+        </div>
+
+        <p>Add your attributes below :</p>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Collection (opt)</th>
+                <th>Type</th>
+                <th>Custom Type (opt)</th>
+                <th>Relation (opt)</th>
+            </tr>
+            <tr *ngFor="let attribute of attributes; let i = index">
+                <td><input class="attChar" id="attName-{{i}}" placeholder="Enter Class Name"></td>
+                <td>
+                    <select class="attChar" id="attColl-{{i}}" (change)="checkType($event.target, i)">
+                        <option *ngFor="let collection of collections" [value]="collection">{{ collection }}</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="attChar" id="attType-{{i}}" (change)="checkType($event.target, i)">
+                        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+                    </select>
+                </td>
+                <td><input class="attChar" id="attCustomName-{{i}}" placeholder="Enter Custom Type Name"
+                        *ngIf="showCustomName[i]"></td>
+                <td>
+                    <select class="attChar" id="attRel-{{i}}" *ngIf="showCustomName[i]">
+                        <option *ngFor="let relation of relations" [value]="relation">{{ relation }}</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <button class="btn-pink" type="button" (click)="addAttribute()">Add attribute</button>
+
+        <h2>Your output</h2>
+        <div class="outputChoice">
+            <p>Getters : </p>
+            <label class="switch">
+                <input type="checkbox" (click)='addOutput("getters")'>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="outputChoice">
+            <p>Setters : </p>
+            <label class="switch">
+                <input type="checkbox" (click)='addOutput("setters")'>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="outputChoice">
+            <p>Constructors : </p>
+            <label class="switch">
+                <input type="checkbox" (click)='addOutput("constructors")'>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+
+        <button class="btn-pink" type="submit">Create My Class! </button>
+    </form>
+</div>
+<app-display-java-class *ngIf="display" [classToDisplay]="classToDisplay"></app-display-java-class>

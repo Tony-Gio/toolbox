@@ -1,0 +1,106 @@
+@import '../../../styles/CONST.scss';
+
+.display_container {
+    margin: auto;
+    width: 50%;
+    min-width: 400px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 1em;
+
+    .codeOptions {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+
+        .code-btn {
+            padding: 0.5em 1em;
+            border: 1px solid $dark;
+            background-color: $light;
+            border-radius: 0;
+            text-align: center;
+            width: 20%;
+            min-width: 80px;
+            font-size: 0.8em;
+            font-weight: 500;
+
+
+
+            &:hover {
+                border: 1px solid $light(243, 205, 243);
+                background-color: $dark;
+                cursor: pointer;
+            }
+        }
+
+        .active{
+            background-color: $dark;
+            width: 25%;
+        }
+
+    }
+
+    #displayCode {
+        background: rgb(56, 54, 54);
+        color: rgb(228, 172, 69);
+        border: 1px solid $dark;
+        font-family: sans-serif;
+        font-size: 0.8em;
+        line-height: 1em;
+        padding: 1em;
+        height: 50vh;
+        overflow-y: auto;
+
+        .capitalized {
+            text-transform: capitalize;
+        }
+
+        .jc_annotation {
+            color: grey;
+            font-style: italic;
+        }
+
+        .margup {
+            margin-top: 1em;
+        }
+
+        .jc_annotation {
+            color: grey;
+            font-style: italic;
+        }
+        
+        .margup {
+            margin-top: 3em;
+        }
+        
+        .indent-2 {
+            margin-left: 2em;
+        }
+        
+        .typeName {
+            color: rgb(79, 79, 173);
+        }
+        
+        .functionName {
+            color: rgb(79, 173, 84);
+        
+        }
+        
+        .capitalized {
+            text-transform: capitalize;
+        }
+        
+        .comment{
+            color: rgb(228, 233, 166)
+        }
+
+        &::-webkit-scrollbar{
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb{
+            background-color: $dark;
+        }
+    }
+}
