@@ -8,6 +8,5 @@ export enum Type {
     boolean = "boolean",
     char = "char",
     String = "String",
-    Arrays = "Arrays",
     OtherClass = "Other class",
 }

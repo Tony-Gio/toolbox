@@ -62,6 +62,9 @@ export class ClassService {
     const relation = attribute.attRel;
     const typeArray = attribute.attCollValue;
     console.log("typeArray : ", typeArray);
+
+    // cas où l'attribut est concerné régie par une relation
+    if (relation){
     output += `<p class="jc_annotation margup">@${relation}</p>`;
     switch (relation) {
       case "One To Many":
@@ -77,8 +80,11 @@ export class ClassService {
         break;
       case "Many To Many":
         output += `
-<p class="jc_annotation">@JoinTable(name = "table_association", joinColumns = @JoinColumn(name = "${myClass.javaClassName.toLowerCase()}_id"), inverseJoinColumns = @JoinColumn(name = "${attribute.attNameValue.toLowerCase()}_id") )</p>
-<p>private <span class="typeName">>${typeArray === "none" ? "" : typeArray}<${attribute.attNameValue}></span> ${attribute.attNameValue.toLowerCase};</p>
+<p class="jc_annotation">
+@JoinTable
+(name = "table_association", 
+joinColumns = @JoinColumn(name = "${myClass.javaClassName.toLowerCase()}_id"), inverseJoinColumns = @JoinColumn(name = "${attribute.attNameValue.toLowerCase()}_id") )</p>
+<p>private <span class="typeName">${typeArray === "none" ? "" : typeArray}&#60;${attribute.attCustomNameValue}&#62;</span> ${attribute.attNameValue.toLowerCase()};</p>
         `;
         break;
       case "One To One":
@@ -88,7 +94,13 @@ export class ClassService {
         output += ``;
         break;
     }
-    return output;
+    return output;}
+
+    // cas où l'attribut n'est concerné par une relation
+    else{
+      console.log("no relations!")
+      return output;
+    }
   }
 
 

@@ -1,7 +1,7 @@
 export enum Collection {
     None = "None",
-    Array = "Array",
-    ArrayList = "ArrayList",
+    // Array = "Array",
+    ArrayList = "List",
     LinkedList = "LinkedList",
     Vector = "Vector",
     HashSet = "HashSet",
