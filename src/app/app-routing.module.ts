@@ -6,8 +6,8 @@ import { AngularComponent } from './component/angular/angular.component';
 import { CheatComponent } from './component/cheat/cheat.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent },
-  {path: 'home', component: HomeComponent },
+  {path: '', component: JavaComponent },
+  {path: 'home', component: JavaComponent },
   {path: 'java', component: JavaComponent },
   {path: 'angular', component: AngularComponent },
   {path: 'cheat', component: CheatComponent },

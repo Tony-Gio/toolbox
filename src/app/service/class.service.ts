@@ -10,10 +10,12 @@ export class ClassService {
 
   displayClass(myClass: Class): string {
 
+    console.log(myClass.tableClassName);
+
     return `
     <div class="javaCode">
     <p class="jc_annotation margup">@Entity</p>
-    <p class="jc_annotation">@Table(name = "${myClass.tableClassName !== "" ? myClass.tableClassName : myClass.javaClassName.toLowerCase()}")</p>
+    <p class="jc_annotation">@Table(name = "${myClass.tableClassName !== "" ? myClass.tableClassName?.toLowerCase() : myClass.javaClassName.toLowerCase()}")</p>
     <p>public class <span class="typeName">${myClass.javaClassName}</span> {<p>
       `+
       this.displayId(myClass) +
